@@ -1,6 +1,8 @@
 package model;
 
 public class NumeroDTO {
+    private Double numero1;
+    private Double numero2;
 
     public NumeroDTO() {
     }
@@ -9,8 +11,6 @@ public class NumeroDTO {
         this.numero1 = numero1;
         this.numero2 = numero2;
     }
-    private Double numero1;
-    private Double numero2;
 
     public Double getNumero1() {
         return numero1;
