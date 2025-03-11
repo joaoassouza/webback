@@ -2,9 +2,9 @@ package main.Repository;
 
 @Repository
 public class UsuarioRepository {
-    private static String INSERT = "insert into usuario (nome, email, senha) values (?,?,?)";
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    private static String INSERT = "insert into usuario (nome, email, senha) values (?,?,?)";
 
     public Usuario inserir(Usuario usuario) {
         jdbcTemplate.update(INSERT, new Object[] { usuario.getNome(), usuario.getEmail(), usuario.getSenha() });

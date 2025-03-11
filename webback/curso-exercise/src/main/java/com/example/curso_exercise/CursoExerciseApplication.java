@@ -10,4 +10,6 @@ public class CursoExerciseApplication {
 		SpringApplication.run(CursoExerciseApplication.class, args);
 	}
 
+	
+
 }
