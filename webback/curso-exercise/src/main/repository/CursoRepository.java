@@ -6,8 +6,10 @@ import java.util.List;
 
 import javax.swing.tree.RowMapper;
 
-import main.Usuario.Usuario;
-import main.models.CategoriaCurso;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class CursoRepository {
@@ -17,7 +19,7 @@ public class CursoRepository {
     // get all do DB
     private static String SELECT_ALL = "select * from Categoria_Curso";
 
-    public List<CategoriaCurso> obterTodos() {
+    public List<categoriaCurso> obterTodos() {
         return jdbcTemplate.query(SELECT_ALL, new RowMapper<Categoria_Curso>() {
             @Override
             public Categoria_Curso mapRow(ResultSet rs, int rowNum) throws SQLException {
