@@ -1,14 +1,13 @@
 package com.example.exercicios.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.exercicios.models.Pet;
-import com.example.exercicios.services.PetServices;
 
-@services
 @RequestMapping("/pet")
 public class PetController {
     private List<Pet> pets = new ArrayList<>();
@@ -20,7 +19,7 @@ public class PetController {
     }
 
     //listar
-    public List<pet> listarPets (){
+    public List<Pet> listarPets (){
         return pets;
     }
 
