@@ -2,11 +2,16 @@ package com.example.relacionamento_exercise.models;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Aluno {
@@ -29,6 +34,12 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String plano;
 
+    //Relacionamento
+    @ManyToMany
+    
+    
+    
+
     //contrutor
     public Aluno(long id, String nome, int idade, LocalDate dataMatricula, String plano) {
         this.id = id;
@@ -45,7 +56,7 @@ public class Aluno {
         this.plano = plano;
     }
 
-
+    //get e set
     public long getId() {
         return id;
     }
