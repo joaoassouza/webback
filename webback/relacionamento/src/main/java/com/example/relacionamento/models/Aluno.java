@@ -1,8 +1,9 @@
-package com.example.relacionamento_exercise.models;
+package com.example.relacionamento.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import org.hibernate.annotations.ManyToAny;
+import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,8 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Aluno {
@@ -26,21 +27,26 @@ public class Aluno {
     @Column(nullable = false)
     private int idade;
 
-    @Column(nullable = false)
-
+    @Column
+    @CreatedDate
     private LocalDate dataMatricula;
 
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String plano;
 
-    //Relacionamento
+    // relacionamento
+    // Aqui eu crio a tabela que juntará as duas colunas
     @ManyToMany
-    
-    
-    
+    @JoinTable(name = "aluno_funcionario",
+    joinColumns = @JoinColumn (name = "funcionario_id"),
+    inverseJoinColumns = @JoinColumn(name = "aluno_id")
+    )
+    private List<Funcionario> funcionarios;
 
-    //contrutor
+
+
+    //cosntrutores
     public Aluno(long id, String nome, int idade, LocalDate dataMatricula, String plano) {
         this.id = id;
         this.nome = nome;
@@ -56,7 +62,7 @@ public class Aluno {
         this.plano = plano;
     }
 
-    //get e set
+    // get and set
     public long getId() {
         return id;
     }
@@ -97,5 +103,12 @@ public class Aluno {
         this.plano = plano;
     }
 
-    //get e set
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
 }
