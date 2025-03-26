@@ -1,8 +1,8 @@
-// package com.example.relacionamento.repository;
+ package com.example.relacionamento.repository;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import com.example.relacionamento.models.Aluno;
+ import org.springframework.data.jpa.repository.JpaRepository;
+ import com.example.relacionamento.models.Aluno;
 
-// public interface AlunoRepository extends JpaRepository<Aluno, Long>  {
+ public interface AlunoRepository extends JpaRepository<Aluno, Long>  {
 
-// }
+ }

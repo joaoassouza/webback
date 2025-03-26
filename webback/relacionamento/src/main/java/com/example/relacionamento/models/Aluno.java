@@ -32,7 +32,6 @@ public class Aluno {
     private LocalDate dataMatricula;
 
     @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String plano;
 
     // relacionamento

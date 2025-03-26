@@ -3,14 +3,10 @@ package com.example.relacionamento.models;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-
+@Entity
 public class Funcionario {
 
     @Id
