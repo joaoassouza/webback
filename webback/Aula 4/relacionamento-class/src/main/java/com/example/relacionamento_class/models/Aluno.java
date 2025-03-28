@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,11 +14,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Aluno {
 
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -37,16 +39,17 @@ public class Aluno {
     // relacionamento
     // Aqui eu crio a tabela que juntará as duas colunas
     @ManyToMany
-    @JoinTable(name = "aluno_funcionario",
-    joinColumns = @JoinColumn (name = "funcionario_id"),
-    inverseJoinColumns = @JoinColumn(name = "aluno_id")
-    )
+    @JoinTable(name = "aluno_funcionario", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
     private List<Funcionario> funcionarios;
 
-    public Aluno(){
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Treino> treinos;
+
+
+    // cosntrutores
+    public Aluno() {
     }
 
-    //cosntrutores
     public Aluno(long id, String nome, int idade, LocalDate dataMatricula, String plano) {
         this.id = id;
         this.nome = nome;

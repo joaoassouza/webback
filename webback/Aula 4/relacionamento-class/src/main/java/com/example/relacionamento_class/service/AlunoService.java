@@ -8,18 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.example.relacionamento_class.models.Aluno;
 import com.example.relacionamento_class.models.Funcionario;
+import com.example.relacionamento_class.models.Treino;
 import com.example.relacionamento_class.repository.AlunoRepository;
 import com.example.relacionamento_class.repository.FuncionarioRepository;
+import com.example.relacionamento_class.repository.TreinoRepository;
 
 @Service
 public class AlunoService {
-  // Após "indicar" o relacionamento nas classes models, é necessario ao criar um
+    // Após "indicar" o relacionamento nas classes models, é necessario ao criar um
     // aluno, associá-lo á um funcionario
 
     @Autowired
     private FuncionarioRepository funcionarioRepository;
     @Autowired
     private AlunoRepository alunoRepository;
+    @Autowired
+    private TreinoRepository treinoRepository;
 
     // adicionar aluno
     public Aluno AlunoAdd(Aluno aluno) {
@@ -43,6 +47,14 @@ public class AlunoService {
     // Listar pot Id
     public Optional<Aluno> listarPorId(Long id) {
         return alunoRepository.findById(id);
+    }
+
+    public Treino adicionarTreino(Long alunoId, Treino treino) {
+        Aluno aluno = alunoRepository.findById(alunoId)
+                .orElseThrow(() -> new RuntimeException("Aluno não encontrado!"));
+
+        treino.setAluno(aluno); // Define a relação
+        return treinoRepository.save(treino); // Salva o treino vinculado ao aluno
     }
 
     // funcao para associar aluno_funcionario
