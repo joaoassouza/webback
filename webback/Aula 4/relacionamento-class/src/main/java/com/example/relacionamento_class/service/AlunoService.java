@@ -49,6 +49,8 @@ public class AlunoService {
         return alunoRepository.findById(id);
     }
 
+
+    
     public Treino adicionarTreino(Long alunoId, Treino treino) {
         Aluno aluno = alunoRepository.findById(alunoId)
                 .orElseThrow(() -> new RuntimeException("Aluno não encontrado!"));
