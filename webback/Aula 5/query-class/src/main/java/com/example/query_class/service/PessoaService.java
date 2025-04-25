@@ -14,7 +14,6 @@ public class PessoaService {
     @Autowired
     PessoaRepository pessoaRepository;
 
-
     //cadastrar
     public Pessoa cadastrarPessoa(Pessoa pessoa){
         return pessoaRepository.save(pessoa);

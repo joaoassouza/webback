@@ -1,37 +1,21 @@
 package com.example.joao_confeitaria.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class SaboresBolo {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String sabor;
 
-    private Double preco;
+    @OneToMany(mappedBy = "sabor")
+    private List<Pedido> pedidos;
 
-    //construtor
-    public SaboresBolo(Long id, String sabor, Double preco) {
-        this.id = id;
-        this.sabor = sabor;
-        this.preco = preco;
-    }
-
-    public SaboresBolo(){
-        
-    }
-
-    //get e set
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;
@@ -45,13 +29,14 @@ public class SaboresBolo {
         this.sabor = sabor;
     }
 
-    public Double getPreco() {
-        return preco;
+    public List<Pedido> getPedidos() {
+        return pedidos;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
-
+    // Getters e setters
+    
 }

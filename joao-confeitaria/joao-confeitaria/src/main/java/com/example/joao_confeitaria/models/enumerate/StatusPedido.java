@@ -2,7 +2,7 @@ package com.example.joao_confeitaria.models.enumerate;
 
 public enum StatusPedido {
     PENDENTE,
-    PRODUÇÃO,
+    EM_PRODUCAO,
     PRONTO,
     ENTREGUE
 
