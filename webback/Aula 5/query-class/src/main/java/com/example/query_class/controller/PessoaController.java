@@ -59,23 +59,23 @@ public class PessoaController {
     }
     
 
-    // 🔹 Endpoint para buscar pessoas com salário maior que um determinado valor
-    @GetMapping("/salario-maior-que/{salario}")
-    public List<Pessoa> buscarPorSalarioMaiorQue(@PathVariable Double salario) {
-        return pessoaService.buscarPorSalarioMenorOuIgual(salario);
-    }
+    // // 🔹 Endpoint para buscar pessoas com salário maior que um determinado valor
+    // @GetMapping("/salario-maior-que/{salario}")
+    // public List<Pessoa> buscarPorSalarioMaiorQue(@PathVariable Double salario) {
+    //     return pessoaService.buscarPorSalarioMenorOuIgual(salario);
+    // }
 
-    // 🔹 Endpoint para buscar pessoas com salário menor ou igual a um determinado valor
-    @GetMapping("/salario-menor-ou-igual/{salario}")
-    public List<Pessoa> buscarPorSalarioMenorOuIgual(@PathVariable Double salario) {
-        return pessoaService.buscarPorSalarioMenorOuIgual(salario);
-    }
+    // // 🔹 Endpoint para buscar pessoas com salário menor ou igual a um determinado valor
+    // @GetMapping("/salario-menor-ou-igual/{salario}")
+    // public List<Pessoa> buscarPorSalarioMenorOuIgual(@PathVariable Double salario) {
+    //     return pessoaService.buscarPorSalarioMenorOuIgual(salario);
+    // }
 
-    // 🔹 Endpoint para buscar pessoas cujo nome começa com um determinado valor
-    @GetMapping("/nome-comeca-com/{nome}")
-    public List<Pessoa> buscarPorNomeComecaCom(@PathVariable String nome) {
-        return pessoaService.buscarPorNomeComecaCom(nome);
-    }
+    // // 🔹 Endpoint para buscar pessoas cujo nome começa com um determinado valor
+    // @GetMapping("/nome-comeca-com/{nome}")
+    // public List<Pessoa> buscarPorNomeComecaCom(@PathVariable String nome) {
+    //     return pessoaService.buscarPorNomeComecaCom(nome);
+    // }
 
 
 }

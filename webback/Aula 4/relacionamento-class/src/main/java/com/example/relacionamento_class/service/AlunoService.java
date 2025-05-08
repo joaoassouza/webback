@@ -51,13 +51,13 @@ public class AlunoService {
 
 
     
-    public Treino adicionarTreino(Long alunoId, Treino treino) {
-        Aluno aluno = alunoRepository.findById(alunoId)
-                .orElseThrow(() -> new RuntimeException("Aluno não encontrado!"));
+    // public Treino adicionarTreino(Long alunoId, Treino treino) {
+    //     Aluno aluno = alunoRepository.findById(alunoId)
+    //             .orElseThrow(() -> new RuntimeException("Aluno não encontrado!"));
 
-        treino.setAluno(aluno); // Define a relação
-        return treinoRepository.save(treino); // Salva o treino vinculado ao aluno
-    }
+    //     treino.setAluno(aluno); // Define a relação
+    //     return treinoRepository.save(treino); // Salva o treino vinculado ao aluno
+    // }
 
     // funcao para associar aluno_funcionario
     public void associarFuncionario(Long funcionarioId, Long alunoId) {
